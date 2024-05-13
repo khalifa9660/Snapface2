@@ -11,6 +11,9 @@ import { AppRoutingModule } from './app-routing-module';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SingleSnapFaceComponent } from './single-snap-face/single-snap-face.component';
 import { ButtonComponent } from './button/button.component';
+import { NewFaceSnapComponent } from './new-face-snap/new-face-snap.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpInterceptorProviders } from './Interceptors';
 
 @NgModule({
   declarations: [
@@ -20,14 +23,17 @@ import { ButtonComponent } from './button/button.component';
     HeaderComponent,
     LandingPageComponent,
     SingleSnapFaceComponent,
-    ButtonComponent
+    ButtonComponent,
+    NewFaceSnapComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [{provide: LOCALE_ID, useValue: 'fr-FR'}],
+  providers: [{provide: LOCALE_ID, useValue: 'fr-FR'}, HttpInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { 
