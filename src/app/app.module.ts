@@ -1,43 +1,26 @@
 import { BrowserModule} from '@angular/platform-browser';
-import { NgModule, LOCALE_ID  } from '@angular/core';
-import { registerLocaleData } from '@angular/common';
-import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
-import * as fr from '@angular/common/locales/fr'
+import { NgModule  } from '@angular/core';
 import { AppComponent } from './app.component';
-import { SnapFaceComponent } from './snap-face/snap-face.component';
-import { FaceSnapListComponent } from './face-snap-list/face-snap-list.component';
-import { HeaderComponent } from './header/header.component';
 import { AppRoutingModule } from './app-routing-module';
-import { LandingPageComponent } from './landing-page/landing-page.component';
-import { SingleSnapFaceComponent } from './single-snap-face/single-snap-face.component';
-import { ButtonComponent } from './button/button.component';
-import { NewFaceSnapComponent } from './new-face-snap/new-face-snap.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpInterceptorProviders } from './Interceptors';
+import { FormsModule } from '@angular/forms';
+import { CoreModule } from './core/core.module';
+import { FaceSnapsModule } from './face-snaps/face-snaps.module';
+import { LandingPageModule } from './landing-pages/landing-page.module';
+import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SnapFaceComponent,
-    FaceSnapListComponent,
-    HeaderComponent,
-    LandingPageComponent,
-    SingleSnapFaceComponent,
-    ButtonComponent,
-    NewFaceSnapComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    CoreModule,
+    FaceSnapsModule,
+    LandingPageModule,
+    AuthModule
   ],
-  providers: [{provide: LOCALE_ID, useValue: 'fr-FR'}, HttpInterceptorProviders],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
-  constructor(){
-    registerLocaleData(fr.default);
-  }
- }
+export class AppModule { }
